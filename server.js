@@ -72,6 +72,7 @@ function mainMenu() {
         db.query("SELECT * FROM department", function (err, results) {
         if (err) throw err;
         console.log(results);
+        console.table(rows);
         mainMenu();
         });
     };
@@ -80,6 +81,7 @@ function mainMenu() {
         db.query("SELECT * FROM role", function (err, results) {
         if (err) throw err;
         console.log(results);
+        console.table(rows);
         mainMenu();
         });
     };
@@ -88,6 +90,49 @@ function mainMenu() {
         db.query("SELECT * FROM employee", function (err, results) {
         if (err) throw err;
         console.log(results);
+        console.table(rows);
         mainMenu();
         });
     };
+
+    function addDepartment () {
+        const sql = `SELECT dept_name FROM departments`;
+        db.query(sql, (err, rows) => {
+            if (err) {
+            console.log(err.message);
+            }
+            console.table(rows);
+        });
+    }
+    
+
+    function addRole () {
+        const sql = `SELECT role_title FROM roles`;
+        db.query(sql, (err, rows) => {
+            if (err) {
+            console.log(err.message);
+            }
+            console.table(rows);
+        });
+    }
+    
+    function addEmployee () {
+        const sql = `SELECT role_title FROM roles`;
+        db.query(sql, (err, rows) => {
+            if (err) {
+            console.log(err.message);
+            }
+            console.table(rows);
+        });
+    }
+    
+    function updateEmployee () {
+        const sql = `SELECT role_title FROM roles`;
+        db.query(sql, (err, rows) => {
+            if (err) {
+            console.log(err.message);
+            }
+            console.table(rows);
+        });
+    }
+    
