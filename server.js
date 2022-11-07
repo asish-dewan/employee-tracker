@@ -20,7 +20,7 @@ db.connect (err => {
     employee_tracker();
 });
 
-function employee_tracker() {
+function mainMenu() {
     inquirer
     .prompt([
     {
@@ -67,3 +67,27 @@ function employee_tracker() {
         });
     };
 
+    const viewDepartments = () => {
+        // Query database
+        db.query("SELECT * FROM department", function (err, results) {
+        if (err) throw err;
+        console.log(results);
+        mainMenu();
+        });
+    };
+
+    const viewRoles = () => {
+        db.query("SELECT * FROM role", function (err, results) {
+        if (err) throw err;
+        console.log(results);
+        mainMenu();
+        });
+    };
+    
+    const viewEmployees = () => {
+        db.query("SELECT * FROM employee", function (err, results) {
+        if (err) throw err;
+        console.log(results);
+        mainMenu();
+        });
+    };
